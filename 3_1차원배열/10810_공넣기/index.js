@@ -7,6 +7,43 @@ const input = fs.readFileSync("example_input.txt").toString().trim().split('\n')
  * 왜 틀렸다는 걸까?
   */
 
+/**
+ * [내 코드 ]
+ * - 틀림
+ * - 원인 : 타입 오류 -> 문자타입을 반복문의 인자로 사용
+ * - 해결 : split후 map을 이용하여 숫자타입으로 변환
+ * - 개념 : 문자열 앞에 +를 붙이면 숫자로 변환된다.
+ * 
+ * 
+    const [N , M] = [...input[0].split(' ')] 
+    const map = new Map();
+
+    for(let i = 1 ; i<= N ; i++ ){ // 오류 : N은 문자열
+        map.set(`${i}`, '0')
+    }
+
+
+    for(let idx = 1 ; idx <= M ; idx++){ // 오류 : M은 문자열
+        
+        const [i,j,k] = [...input[idx].split(' ')]
+        for(let start = i ; start <= j ; start ++){
+            map.set(`${start}`,k)
+        } 
+    }
+
+    for(const [key, value] of map.entries()){
+        if(key === N){
+            process.stdout.write(`${value}\n`)
+        }else{
+            process.stdout.write(`${value} `)
+        }
+    }
+ * 
+ */
+
+
+
+// 수정 코드 / 답안
 
 // N, M을 추출 
 // map을 통해 각 요소마다 +를 붙여주면 string -> number로 형변환 됨
