@@ -1,0 +1,39 @@
+const fs = require('fs');
+const input = fs.readFileSync("example_input.txt").toString().trim().split('\n')
+
+/** [ 2444 - 별 찍기 ]
+ * 입력 값에 따른 별 찍기 -> 다이아몬드
+ * 더 정확한 방법으로 푼 방법
+ * 다른 분들은 String.repeat()를 사용했다.
+ * */
+
+
+
+
+
+
+
+const num = 2*Number(input[0])-1 // 연산된 값
+
+const half = parseInt(num/2)
+
+
+for(let i = 0, j=1, z=half ; i < num ; i++){
+    
+    if(i <= half){
+        let arr = Array.from({length : j }, ()=>'*');
+        let arr2 = Array.from({length : z}, ()=>' ')
+        console.log(arr2.join('')+arr.join(''))
+        if( i !== half){
+            j +=2 ;
+            z -= 1;
+        } 
+    }else{
+        j-=2;
+        z+=1;
+        let arr = Array.from({length : j }, ()=>'*');
+        let arr2 = Array.from({length : z}, ()=>' ');
+        console.log(arr2.join('')+arr.join(''))
+    }
+    
+}
