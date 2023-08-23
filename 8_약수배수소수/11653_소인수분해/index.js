@@ -51,8 +51,10 @@ while( number > 1){
     for(let i = 0 ;  i < arr.length ; i++){
         if( number % arr[i] == 0){
             arr2.push(arr[i])
-            number = number / arr[i]
+            number = number / arr[i];
+            break;
         }
+        console.log(`반복횟수 : ${i}`)
     }
 }
 
