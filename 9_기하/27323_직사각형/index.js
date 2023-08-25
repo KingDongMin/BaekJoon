@@ -10,3 +10,4 @@ const B = Number(input[1]);
 
 console.log(A*B)
 
+// 이 문제는 블로깅하지 않음 -> 간단하기에..
