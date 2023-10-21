@@ -9,13 +9,14 @@ const input = fs.readFileSync('example_input.txt').toString().trim().split('\n')
 
 const sugar = Number(input[0]);
 const arr = [];
-for(let i = 0 ; i < Math.floor(sugar/3) ; i++){
+for(let i = 0 ; i < Math.ceil(sugar/3) ; i++){
     const bongi = (sugar - 5 * i )/3
     if(bongi < 0 ) break;
     if(!Number.isInteger(bongi)) continue;
     arr.push(bongi + i)
 }
 console.log( arr.length == 0 ? -1 : Math.min(...arr) )
+
 
 
 
